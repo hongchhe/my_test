@@ -1,24 +1,27 @@
 pipeline {
   agent any
   stages {
-    stage('stage_1') {
-      steps {
-        script {
-          env.scm_home = WORKSPACE
-          parallel(
-            "test1": {externalMethod("adam")},
-            "test2": {externalMethod("chuang")},
-          )
-        }
-        script {
-          parallel(
-            "test3": {externalCall("adam2")},
-            "test4": {externalCall("chuang2")},
-          )
+    stage('pre') {
+      steps{
+        timestamp {
+          script {
+            env.scm_home = WORKSPACE
+          }
         }
       }
     }
-
+    stage('Parallel Stage1') {
+      parallel (
+        "test1": {externalMethod("adam")},
+        "test2": {externalMethod("chuang")},
+      )
+    }
+    stage('Parallel Stage2') {
+      parallel(
+        "test3": {externalCall("adam2")},
+        "test4": {externalCall("chuang2")},
+      )
+    }
   }
 }
 

@@ -2,9 +2,9 @@
 def call(String whoAreYou) {
     echo "Now we're being called more magically, ${whoAreYou}, thanks to the call(...) method."
     test1 = ${whoAreYou}
-    echo "test1: ${test1}, whoAreYou: ${whoAreYou}"
+    println("test1: ${test1}, whoAreYou: ${whoAreYou}")
     sleep 3
-    echo "test1: ${test1}, whoAreYou: ${whoAreYou}"
+    println("test1: ${test1}, whoAreYou: ${whoAreYou}")
 }
 
 return this;

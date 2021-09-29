@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('pre') {
       steps {
-        timestamp {
+        timestamps {
           script {
             env.scm_home = WORKSPACE
           }

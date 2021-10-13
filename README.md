@@ -15,6 +15,7 @@ C -->|Two| E[Result 2]
 ```
 - test mermaid flowchart
 ```mermaid
-graph LR
-A --> B --> C
+graph TD
+A --> B
+B --> C
 ```

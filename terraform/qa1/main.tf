@@ -23,13 +23,13 @@ resource "null_resource" "null_resource_simple" {
 
 resource "null_resource" "before" {
   provisioner "local-exec" {
-    command = "echo \"Wait 60 seconds\""
+    command = "echo \"Wait 30 seconds\""
   }
 }
 
 resource "null_resource" "delay" {
   provisioner "local-exec" {
-    command = "sleep 60"
+    command = "sleep 30"
   }
   triggers = {
     "before" = "${null_resource.before.id}"

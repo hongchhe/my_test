@@ -17,7 +17,7 @@ locals {
 resource "null_resource" "null_resource_simple" {
   for_each = local.map1
   provisioner "local-exec" {
-    command = "echo  ${each.key} ${each.value.name1} ${each.value.name2}"
+    command = "echo ${each.key} ${each.value.name1} ${each.value.name2}"
   }
 }
 

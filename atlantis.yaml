@@ -15,11 +15,11 @@ projects:
     workflow: qa
     apply_requirements: ["mergeable"]
     autoplan:
-      enabled: false
+      enabled: true
       when_modified:
         - "*.tf"
         - "*.tfvars"
-        - "../../modules/*/*.tf"
+        - "../modules/*/*.tf"
   - dir: terraform/qa2
     terraform_version: v1.3.6
     workflow: qa
@@ -29,5 +29,5 @@ projects:
       when_modified:
         - "*.tf"
         - "*.tfvars"
-        - "../../modules/*/*.tf"
+        - "../modules/*/*.tf"
  

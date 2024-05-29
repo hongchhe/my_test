@@ -29,7 +29,7 @@ resource "null_resource" "before" {
 
 resource "null_resource" "delay" {
   provisioner "local-exec" {
-    command = "sleep 30"
+    command = "sleep 20"
   }
   triggers = {
     "before" = "${null_resource.before.id}"

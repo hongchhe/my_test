@@ -29,4 +29,3 @@ projects:
         - "*.tf"
         - "*.tfvars"
         - "../modules/*/*.tf"
-    workflow: default

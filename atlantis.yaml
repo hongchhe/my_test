@@ -10,7 +10,7 @@ projects:
         - "*.tfvars"
     workflow: dev
   - dir: terraform/qa1
-    terraform_version: v1.8.1
+    terraform_version: v1.8.3
     workflow: qa
     apply_requirements: ["mergeable"]
     autoplan:
@@ -20,7 +20,7 @@ projects:
         - "*.tfvars"
         - "../modules/*/*.tf"
   - dir: terraform/qa2
-    terraform_version: v1.8.1
+    terraform_version: v1.8.3
     workflow: qa
     apply_requirements: ["approved", "mergeable"]
     autoplan:

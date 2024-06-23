@@ -1,4 +1,6 @@
 version: 3
+parallel_plan: true
+parallel_apply: true
 projects:
   - name: test
     dir: ./
@@ -6,5 +8,24 @@ projects:
       when_modified:
         - "*.tf"
         - "*.tfvars"
-    workflow: default
- 
+    workflow: dev
+  - dir: terraform/qa1
+    terraform_version: v1.8.5
+    workflow: qa
+    apply_requirements: ["mergeable"]
+    autoplan:
+      enabled: true
+      when_modified:
+        - "*.tf"
+        - "*.tfvars"
+        - "../modules/*/*.tf"
+  - dir: terraform/qa2
+    terraform_version: v1.8.5
+    workflow: qa
+    apply_requirements: ["approved", "mergeable"]
+    autoplan:
+      enabled: true
+      when_modified:
+        - "*.tf"
+        - "*.tfvars"
+        - "../modules/*/*.tf"

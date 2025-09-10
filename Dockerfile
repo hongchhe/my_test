@@ -1,0 +1,4 @@
+FROM busybox:latest
+
+ARG TEST_SECRET
+echo "TEST_SECRET: ${TEST_SECRET}"

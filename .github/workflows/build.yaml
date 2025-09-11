@@ -18,8 +18,8 @@ jobs:
     uses: docker/build-push-action@latest
     with:
       context: .
-      push: true
-      tags: ${{ steps.meta.outputs.tags }}
-      labels: ${{ steps.meta.outputs.labels }}
+      # push: true
+      # tags: ${{ steps.meta.outputs.tags }}
+      # labels: ${{ steps.meta.outputs.labels }}
       build-args: |
         TEST_SECRET=${{ secrets.TEST_SECRET }}

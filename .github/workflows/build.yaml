@@ -1,9 +1,25 @@
-- name: Build Docker image
-  uses: docker/build-push-action@latest
-  with:
-    context: .
-    push: true
-    tags: ${{ steps.meta.outputs.tags }}
-    labels: ${{ steps.meta.outputs.labels }}
-    build-args: |
-      TEST_SECRET=${{ secrets.TEST_SECRET }}
+name: Build
+
+on:
+  # workflow_dispatch:
+  #   inputs:
+  #     tier:
+  #       required: true
+  #       type: choice
+  #       description: Specify the deployment tier for ad-hoc build and deployment purposes.
+  #       options:
+  #         - dev
+  push:
+    branches:
+      - main
+
+jobs:
+  build-test:
+    uses: docker/build-push-action@latest
+    with:
+      context: .
+      push: true
+      tags: ${{ steps.meta.outputs.tags }}
+      labels: ${{ steps.meta.outputs.labels }}
+      build-args: |
+        TEST_SECRET=${{ secrets.TEST_SECRET }}

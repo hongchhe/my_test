@@ -22,4 +22,4 @@ jobs:
       # tags: ${{ steps.meta.outputs.tags }}
       # labels: ${{ steps.meta.outputs.labels }}
       secret-envs: |
-        TEST_SECRET=${{ secrets.TEST_SECRET }}
+        TEST_SECRET=TEST_SECRET
